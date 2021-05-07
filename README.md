@@ -3,4 +3,4 @@ I've written this as a part of my project while learning python on codeacademy.
 
 Give it a try.
 
-¯\\_(ツ)_/¯
+¯\\_(ツ)\_/¯
