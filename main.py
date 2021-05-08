@@ -1,5 +1,8 @@
 import random
 
+class InputError(Exception):
+  pass
+
 class Hangman:
   def __init__(self, player_name):
     self.player_name = player_name
@@ -101,23 +104,43 @@ class Hangman:
     print("")
     print(self.guess_word(current_word, open_letters))
   
+  def choose_genre(self):
+    #this method will ask the user to choose from a list of genres. When the user chooses one, the method will return the list of words from the chosen genre.
+
+    megalist = [[1, 2], ["Bollywood Movies", "Jodhaa Akbar", "Gully Boy", "Sholay", "Hum Saath Saath Hain"], ["Tourist Places", "Eiffel Tower", "Statue of Liberty", "Machu Pichu", "Vivekanand Memorial", "The Gateway of India"]]
+
+    #megalist is a list of lists. The first list of megalist contains the index of all other lists - starting from 1. The rest of the items of megalist are lists - with index zero item as the name of the genre, and rest of the items are words from that genre.
+
+    genre_options = ""
+    for each in megalist[0]:
+      genre_options += str(each) + " - " + str(megalist[each][0]) + "\n"
+  
+    choice = 0
+    while choice not in megalist[0]:
+      while True:
+        try:
+          choice = int(input("\nChoose from these options:\n" + genre_options + "Enter a number\n"))
+          break
+        except ValueError:
+          print("\nERROR! Please enter a valid number")    
+    
+    return megalist[choice]
+    
 
 
 
 
 
-
-# hangu = Hangman("mansi")
+hangu = Hangman("mansi")
 # hangu.print_response("GULLY BOY", ['L','Y','O'], 4, "correct")
     
-    
-  
-
+     
+current_list = []
 
 # print("Welcome to Hangman")
 # player_name = input("What's your' name?\n")
 # print("Here are the rules of the game,",player_name)
 # print("#Rules of the game")
 # genre = input("Which genre would you like to play?\n")
-
+current_list = hangu.choose_genre()
 
