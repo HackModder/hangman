@@ -182,13 +182,19 @@ class Hangman:
     return guess_type, open_letters, missed_guesses
 
 
-
+print("""
+ _   _   ___   _   _ _____ ___  ___  ___   _   _ 
+| | | | / _ \ | \ | |  __ \|  \/  | / _ \ | \ | |
+| |_| |/ /_\ \|  \| | |  \/| .  . |/ /_\ \|  \| |
+|  _  ||  _  || . ` | | __ | |\/| ||  _  || . ` |
+| | | || | | || |\  | |_\ \| |  | || | | || |\  |
+\_| |_/\_| |_/\_| \_/\____/\_|  |_/\_| |_/\_| \_/
+""")
 print("Welcome to Hangman")
-player_name = input("What's your' name?\n").upper()
+player_name = input("\nWhat's your' name?\n").upper()
 hangu = Hangman(player_name)
-# hangu = Hangman("niraj")
-print("Here are the rules of the game,",player_name)
-print("#Rules of the game\nWhich category you'd like to play?")
+print("\nHere are the rules of the game,",player_name)
+print("\n> This is guessing game.\n> You will be guessing either movie names, or tourist places.\n> For each movie/place you will have 6 wrong guesses.\n> If you make 6 wrong guesses, a man will be hanged!\n> Try to guess correctly to save men from being hanged.\n\nWhich category you'd like to play?")
 lives_saved = 0
 killed = 0
 
@@ -229,7 +235,7 @@ while game_is_active:
       if wrong_guess_counter == 6 or remaining_char == 0:
         if wrong_guess_counter == 6:
           killed += 1
-          print("\n      G A M E  O V E R !\n      It was:", current_word, "\n\nPLAY AGAIN?")
+          print("\n      G A M E  O V E R ! Man Dead!\n      It was:", current_word, "\n\nPLAY AGAIN?")
         else:
           lives_saved += 1
           print("\n      AMAAYYZEEEEENGGG!!!!\n      You saved a life!\n\nPLAY AGAIN?")  
